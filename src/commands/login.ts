@@ -189,6 +189,7 @@ export async function login(): Promise<void> {
     console.log(`API key saved to: ${getConfigPath()}`);
     console.log('\nYou can now use findall commands without specifying --api-key');
 
+    process.exit(0);
   } catch (error) {
     console.error('\n❌ Authentication failed:', error instanceof Error ? error.message : String(error));
     process.exit(1);
