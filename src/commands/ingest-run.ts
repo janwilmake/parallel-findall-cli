@@ -4,6 +4,7 @@ import { ParallelClient } from '../client/parallel.js';
 import { SchemaEditor } from '../ui/schema-editor.js';
 import { RunMonitor } from '../ui/run-monitor.js';
 import { ResultWriter } from '../output/result-writer.js';
+import { getApiKey } from '../config/store.js';
 import type { FindAllSchema, FindAllRunInput } from '../types/findall.js';
 
 interface RunOptions {
@@ -20,10 +21,11 @@ export async function ingestAndRun(
   options: RunOptions
 ): Promise<void> {
   try {
-    // Validate and setup
-    const apiKey = options.apiKey || process.env.PARALLEL_API_KEY;
+    // Validate and setup - check options, env var, then stored config
+    const storedApiKey = await getApiKey();
+    const apiKey = options.apiKey || process.env.PARALLEL_API_KEY || storedApiKey;
     if (!apiKey) {
-      console.error('Error: API key required. Use --api-key or set PARALLEL_API_KEY env var');
+      console.error('Error: API key required. Run "findall login" to authenticate, use --api-key, or set PARALLEL_API_KEY env var');
       process.exit(1);
     }
 

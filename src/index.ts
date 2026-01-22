@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
 import { ingestAndRun } from './commands/ingest-run.js';
+import { login } from './commands/login.js';
 
 const program = new Command();
 
@@ -8,6 +9,11 @@ program
   .name('findall')
   .description('CLI tool for Parallel FindAll API')
   .version('0.1.0');
+
+program
+  .command('login')
+  .description('Authenticate with Parallel using OAuth and save API key')
+  .action(login);
 
 program
   .command('run')

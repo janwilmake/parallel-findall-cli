@@ -1,6 +1,6 @@
 {
   "name": "findall-cli",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "CLI tool for Parallel FindAll API",
   "type": "module",
   "main": "dist/index.js",
