@@ -14,6 +14,12 @@ Or use directly with npx:
 npx findall-cli run ./output "Find AI companies that raised Series A in 2024"
 ```
 
+## Installation into your coding agent (Claude, Cursor, etc.)
+
+```
+npx skills add janwilmake/parallel-findall-cli
+```
+
 ## Usage
 
 ### Basic Usage
@@ -23,6 +29,7 @@ findall run <output-dir> <objective>
 ```
 
 **Example:**
+
 ```bash
 findall run ./results "Find all SaaS companies with SOC2 Type II certification"
 ```
@@ -83,13 +90,13 @@ Results are saved to the specified output directory:
 
 ## Options
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| `-k, --api-key <key>` | Parallel API key | `$PARALLEL_API_KEY` |
-| `-g, --generator <tier>` | Generator tier (base\|core\|pro\|preview) | `core` |
-| `-l, --limit <number>` | Initial match limit (5-1000) | `50` |
-| `--skip-preview` | Skip schema preview | `false` |
-| `--auto-approve` | Auto-approve schema without editing | `false` |
+| Option                   | Description                               | Default             |
+| ------------------------ | ----------------------------------------- | ------------------- |
+| `-k, --api-key <key>`    | Parallel API key                          | `$PARALLEL_API_KEY` |
+| `-g, --generator <tier>` | Generator tier (base\|core\|pro\|preview) | `core`              |
+| `-l, --limit <number>`   | Initial match limit (5-1000)              | `50`                |
+| `--skip-preview`         | Skip schema preview                       | `false`             |
+| `--auto-approve`         | Auto-approve schema without editing       | `false`             |
 
 ## Examples
 
